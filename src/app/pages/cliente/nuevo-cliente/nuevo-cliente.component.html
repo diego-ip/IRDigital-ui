@@ -1,0 +1,53 @@
+<div fxLayout="row" fxLayoutAlign="start center" class="p-25">
+  <mat-icon class="text-secondary">home</mat-icon>
+  <mat-icon class="text-secondary">chevron_right</mat-icon>
+  <span class="text-secondary">Cliente</span>
+  <mat-icon class="text-secondary">chevron_right</mat-icon>
+  <span class="text-secondary">Nuevo</span>
+</div>
+
+<form [formGroup]="form" class="card" style="margin: 25px 25px; padding: 10px;">
+  <div fxLayout="column" fxLayout.gt-xs="row" fxLayoutGap.gt-xs="10px">
+    <mat-form-field fxFlex appearance="outline" >
+      <mat-label>Nombre</mat-label>
+      <input formControlName="nombre" type="text" matInput>
+      <mat-error *ngIf="form.controls.nombre.errors; let e;">
+        <span *ngIf="e.required">este campo es obligatorio<br /></span>
+        <span *ngIf="e.maxlength">la longitud debe ser menor a 100<br /></span>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field fxFlex appearance="outline">
+      <mat-label>Apellido Paterno</mat-label>
+      <input formControlName="apellidoPaterno" type="text" matInput>
+      <mat-error *ngIf="form.controls.apellidoPaterno.errors; let e;">
+        <span *ngIf="e.required">este campo es obligatorio<br /></span>
+        <span *ngIf="e.maxlength">la longitud debe ser menor a 100<br /></span>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field fxFlex appearance="outline">
+      <mat-label>Apellido Materno</mat-label>
+      <input formControlName="apellidoMaterno" type="text" matInput>
+      <mat-error *ngIf="form.controls.apellidoMaterno.errors; let e;">
+        <span *ngIf="e.required">este campo es obligatorio<br /></span>
+        <span *ngIf="e.maxlength">la longitud debe ser menor a 100<br /></span>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field  fxFlex appearance="outline">
+      <mat-label>Fecha Nacimiento</mat-label>
+      <input name="fecha_nacimiento" formControlName="fechaNacimiento" matInput [matDatepicker]="startDatePicker">
+      <mat-datepicker-toggle matSuffix [for]="startDatePicker"></mat-datepicker-toggle>
+      <mat-datepicker #startDatePicker></mat-datepicker>
+      <mat-error *ngIf="form.controls.fechaNacimiento.errors; let e;">
+        <span *ngIf="e.required">este campo es obligatorio<br /></span>
+      </mat-error>
+    </mat-form-field>
+  </div>
+ 
+  <br>
+  <button mat-raised-button type="submit" [disabled]="(form.invalid || !form.dirty)" (click)="save()">
+    <mat-icon>
+      save
+    </mat-icon>
+    <span>&nbsp;&nbsp;Guardar</span>
+  </button>
+</form>

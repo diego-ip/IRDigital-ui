@@ -1,0 +1,14 @@
+<div class="toolbar w-full ph-10" fxLayout="row" fxLayoutAlign="start center">
+
+    <button (click)="openSidenav()" [fxHide]="!mobileQuery" mat-icon-button type="button">
+        <mat-icon>menu</mat-icon>
+    </button>
+
+    <a class="mr-20" fxLayout="row" fxLayoutAlign="start center">
+        <h1 [fxHide]="mobileQuery" class="pl-5 m-0 select-none">IR Digital</h1>
+    </a>
+    <div class="ph-10" fxFlex="none" fxLayout="row" [fxHide]="mobileQuery" fxLayoutAlign="start center">
+        <uni-navigation-item *ngFor="let item of navigationItems" [item]="item"></uni-navigation-item>
+    </div>
+    <span fxFlex></span>
+</div>

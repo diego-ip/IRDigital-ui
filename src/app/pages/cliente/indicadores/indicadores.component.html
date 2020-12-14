@@ -1,0 +1,30 @@
+<div fxLayout="row" fxLayoutAlign="start center" class="p-25">
+  <mat-icon class="text-secondary">home</mat-icon>
+  <mat-icon class="text-secondary">chevron_right</mat-icon>
+  <span class="text-secondary">Cliente</span>
+  <mat-icon class="text-secondary">chevron_right</mat-icon>
+  <span class="text-secondary">KPI</span>
+</div>
+
+<div fxLayout="row"  fxLayoutAlign="space-evenly center" *ngIf="clienteKpi">
+  <mat-card >
+    <mat-card-header>
+      <mat-card-title><b>Edad Promedio de clientes</b></mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <p class="kpi">
+       {{ clienteKpi.promedioEdad | number:'1.1-5'}}
+      </p>
+    </mat-card-content>
+  </mat-card>
+  <mat-card >
+    <mat-card-header>
+      <mat-card-title><b>Desviación Estandar de clientes</b></mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <p class="kpi">
+       {{ clienteKpi.desviacionEstandarEdad | number:'1.1-5'}}
+      </p>
+    </mat-card-content>
+  </mat-card>
+</div>
